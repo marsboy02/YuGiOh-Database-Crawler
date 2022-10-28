@@ -5,6 +5,7 @@ import generateSwaggerDocument from './infrastructure/swagger/swagger.generator'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   SwaggerModule.setup('docs', app, generateSwaggerDocument(app));
   await app.listen(3000);
 }
