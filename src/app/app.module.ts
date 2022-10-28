@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { HealthModule } from './health/health.module';
-import { CrawlerModule } from './crawler/crawler.module';
+import { CardModule } from './crawler/card.module';
 
 @Module({
-  imports: [HealthModule, CrawlerModule],
+  imports: [HealthModule, CardModule],
 })
 export class AppModule {}

@@ -6,8 +6,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 const document = new DocumentBuilder()
   .setTitle('유희왕 카드 데이터 API')
   .setDescription('유희왕 카드와 관련된 데이터를 크롤링하는 API입니다.')
-  .setVersion('0.1')
-  .addTag('YuGiOh');
+  .setVersion('0.1');
 
 tags.forEach((tag) => document.addTag(tag.name, tag.description));
 
