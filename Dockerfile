@@ -1,11 +1,11 @@
-FROM node:18-alpine as base
+FROM node:18-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY ./ ./
+COPY package*.json ./
 
 RUN npm install
 
-FROM base as production
+COPY . .
 
 CMD ["node", "dist/main.js"]
