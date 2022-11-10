@@ -9,7 +9,7 @@ export class CardController {
 
   @Get('/search/:name')
   @ApiOperation({ summary: '해당 카드에 대한 정보를 조회합니다.' })
-  getCardOne(@Param('name') name: string): string {
-    return this.cardService.getCardData(name);
+  getCardOne(@Param('name') name: string) {
+    return this.cardService.getDataViaPuppeteer(name);
   }
 }
