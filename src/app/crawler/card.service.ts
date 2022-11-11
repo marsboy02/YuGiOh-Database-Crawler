@@ -30,7 +30,7 @@ export class CardService {
     const url = `https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&sess=1&rp=10&mode=&sort=1&keyword=${name}&stype=1&ctype=&othercon=2&starfr=&starto=&pscalefr=&pscaleto=&linkmarkerfr=&linkmarkerto=&link_m=2&atkfr=&atkto=&deffr=&defto=`;
 
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
     });
     const page = await browser.newPage();
     await page.goto(url, {
@@ -64,17 +64,16 @@ export class CardService {
     ).text();
 
     const data = {
-      card_name,
-      card_level,
-      card_species,
-      card_atk,
-      card_def,
-      card_attribute,
-      card_effect,
+      card_name: card_name,
+      card_level: card_level,
+      card_species: card_species,
+      card_atk: card_atk,
+      card_def: card_def,
+      card_attribute: card_attribute,
+      card_effect: card_effect,
     };
 
     browser.close();
-
-    return data;
+    return JSON.stringify(data);
   }
 }
