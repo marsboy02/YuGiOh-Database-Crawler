@@ -63,7 +63,18 @@ export class CardService {
       '#card_list > div > dl > dd.box_card_text.c_text.flex_1',
     ).text();
 
+    const data = {
+      card_name,
+      card_level,
+      card_species,
+      card_atk,
+      card_def,
+      card_attribute,
+      card_effect,
+    };
+
     browser.close();
-    return name;
+
+    return data;
   }
 }
