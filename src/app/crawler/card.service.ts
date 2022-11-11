@@ -40,11 +40,28 @@ export class CardService {
     const content = await page.content();
 
     const $ = cheerio.load(content);
-    const test = $(
+
+    const card_name = $(
+      '#card_list > div > dl > dd.box_card_name.flex_1.top_set > span.card_name',
+    ).text();
+    const card_attribute = $(
+      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.box_card_attribute > span',
+    ).text();
+    const card_level = $(
+      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.box_card_level_rank.level > span',
+    ).text();
+    const card_species = $(
+      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.card_info_species_and_other_item > span',
+    ).text();
+    const card_atk = $(
+      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.atk_power > span',
+    ).text();
+    const card_def = $(
+      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.def_power > span',
+    ).text();
+    const card_effect = $(
       '#card_list > div > dl > dd.box_card_text.c_text.flex_1',
     ).text();
-
-    console.log(test);
 
     browser.close();
     return name;
