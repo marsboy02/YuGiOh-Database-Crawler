@@ -7,8 +7,8 @@
 - 유희왕 카드 데이터 조회 기능
 
 ## 개발 현황
--[ ] puppeteer 및 cheerio를 사용한 크롤링 API 개발
--[ ] Dockerfile을 통한 컨테이너 배포 환경 구성
+- [ ] puppeteer 및 cheerio를 사용한 크롤링 API 개발
+- [ ] Dockerfile을 통한 컨테이너 배포 환경 구성
 
 ## 개발 환경 구축
 
