@@ -74,6 +74,6 @@ export class CardService {
     };
 
     browser.close();
-    return JSON.stringify(data);
+    return data;
   }
 }
