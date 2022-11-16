@@ -69,12 +69,14 @@ export class CardService {
     const data = {
       card_name: card_name,
       card_level: card_level,
-      card_species: card_species,
+      card_species: card_species.replace(/\t/gi, '').replace(/\n/gi, ''),
       card_atk: card_atk,
-      card_def: card_def,
-      card_attribute: card_attribute,
-      card_effect: card_effect,
+      card_def: card_def.replace(/\t/gi, '').replace(/\n/gi, ''),
+      card_attribute: card_attribute.replace(/\t/gi, '').replace(/\n/gi, ''),
+      card_effect: card_effect.replace(/\t/gi, '').replace(/\n/gi, ''),
     };
+
+    console.log(data);
 
     browser.close();
     return data;
