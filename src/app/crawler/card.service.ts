@@ -41,26 +41,29 @@ export class CardService {
 
     const $ = cheerio.load(content);
 
+    const card_name_one = await page.$x(
+      '//*[@id="card_list"]/div[1]/dl/dd[1]/span[2]',
+    );
     const card_name = $(
-      '#card_list > div > dl > dd.box_card_name.flex_1.top_set > span.card_name',
+      '#card_list > div:nth-child(1) > dl > dd.box_card_name.flex_1.top_set > span.card_name',
     ).text();
     const card_attribute = $(
-      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.box_card_attribute > span',
+      '#card_list > div:nth-child(1) > dl > dd.box_card_spec.flex_1 > span.box_card_attribute > span',
     ).text();
     const card_level = $(
-      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.box_card_level_rank.level > span',
+      '#card_list > div:nth-child(1) > dl > dd.box_card_spec.flex_1 > span.box_card_level_rank.level > span',
     ).text();
     const card_species = $(
-      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.card_info_species_and_other_item > span',
+      '#card_list > div:nth-child(1) > dl > dd.box_card_spec.flex_1 > span.card_info_species_and_other_item > span',
     ).text();
     const card_atk = $(
-      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.atk_power > span',
+      '#card_list > div:nth-child(1) > dl > dd.box_card_spec.flex_1 > span.atk_power > span',
     ).text();
     const card_def = $(
-      '#card_list > div > dl > dd.box_card_spec.flex_1 > span.def_power > span',
+      '#card_list > div:nth-child(1) > dl > dd.box_card_spec.flex_1 > span.def_power > span',
     ).text();
     const card_effect = $(
-      '#card_list > div > dl > dd.box_card_text.c_text.flex_1',
+      '#card_list > div:nth-child(1) > dl > dd.box_card_text.c_text.flex_1',
     ).text();
 
     const data = {

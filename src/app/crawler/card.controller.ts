@@ -1,5 +1,5 @@
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { Controller, Get, Param, Req } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { CardService } from './card.service';
 
 @Controller('card')
