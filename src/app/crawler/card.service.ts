@@ -1,28 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
-
-const params = {
-  ope: 1,
-  sess: 1,
-  rp: 10,
-  mode: null,
-  keyword: null,
-  stype: 1,
-  ctype: null,
-  othercon: 2,
-  starfr: null,
-  starto: null,
-  pscalefr: null,
-  pscaleto: null,
-  linkmarkerfr: null,
-  linkmarkerto: null,
-  link_m: 2,
-  atkfr: null,
-  atkto: null,
-  deffr: null,
-  defto: null,
-};
+import { trimAllEscape } from '../../infrastructure/crawling/card.infra';
 
 @Injectable()
 export class CardService {
@@ -41,9 +20,6 @@ export class CardService {
 
     const $ = cheerio.load(content);
 
-    const card_name_one = await page.$x(
-      '//*[@id="card_list"]/div[1]/dl/dd[1]/span[2]',
-    );
     const card_name = $(
       '#card_list > div:nth-child(1) > dl > dd.box_card_name.flex_1.top_set > span.card_name',
     ).text();
@@ -67,18 +43,16 @@ export class CardService {
     ).text();
 
     const data = {
-      card_name: card_name,
-      card_level: card_level,
-      card_species: card_species.replace(/\t/gi, '').replace(/\n/gi, ''),
-      card_atk: card_atk,
-      card_def: card_def.replace(/\t/gi, '').replace(/\n/gi, ''),
-      card_attribute: card_attribute.replace(/\t/gi, '').replace(/\n/gi, ''),
-      card_effect: card_effect.replace(/\t/gi, '').replace(/\n/gi, ''),
+      card_name,
+      card_level,
+      card_species,
+      card_atk,
+      card_def,
+      card_attribute,
+      card_effect,
     };
 
-    console.log(data);
-
     browser.close();
-    return data;
+    return trimAllEscape(data);
   }
 }
