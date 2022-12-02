@@ -7,6 +7,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   SwaggerModule.setup('docs', app, generateSwaggerDocument(app));
-  await app.listen(3000);
+  await app.listen(
+    3000,
+    'ec2-3-38-100-30.ap-northeast-2.compute.amazonaws.com',
+  );
 }
 bootstrap();
