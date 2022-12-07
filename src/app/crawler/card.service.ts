@@ -10,13 +10,11 @@ export class CardService {
 
     const browser = await puppeteer.launch({
       headless: false,
-      args: [
-        '--disable-gpu',
-        '--disable-setuid-sandbox',
-        '--no-sandbox',
-        '--no-zygote',
-      ],
+      args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox'],
       executablePath: '/usr/bin/chromium-browser',
+      env: {
+        DISPLAY: ':10.0',
+      },
     });
     const page = await browser.newPage();
     await page.goto(url, {
