@@ -19,6 +19,7 @@ export class CardService {
     await page.goto(url, {
       waitUntil: 'networkidle2',
     });
+    await page.waitForTimeout(3000);
     const content = await page.content();
 
     const $ = cheerio.load(content);
