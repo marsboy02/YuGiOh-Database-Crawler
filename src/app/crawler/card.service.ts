@@ -10,17 +10,15 @@ export class CardService {
 
     const browser = await puppeteer.launch({
       headless: false,
-      args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox'],
-      executablePath: '/usr/bin/chromium-browser',
+      args: ['--disable-setuid-sandbox', '--no-sandbox'],
       env: {
-        DISPLAY: ':10.0',
+        DISPLAY: ':999',
       },
     });
     const page = await browser.newPage();
     await page.goto(url, {
       waitUntil: 'networkidle2',
     });
-
     const content = await page.content();
 
     const $ = cheerio.load(content);
