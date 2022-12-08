@@ -16,15 +16,12 @@ export class CardService {
       },
     });
     const page = await browser.newPage();
-    await page.waitForTimeout(3000);
     await page.goto(url, {
       waitUntil: 'networkidle2',
     });
-    await page.waitForTimeout(3000);
     const content = await page.content();
-
     const $ = cheerio.load(content);
-
+    console.log(content);
     const card_name = $(
       '#card_list > div:nth-child(1) > dl > dd.box_card_name.flex_1.top_set > span.card_name',
     ).text();
