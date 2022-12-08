@@ -10,12 +10,16 @@ export class CardService {
 
     const browser = await puppeteer.launch({
       headless: false,
-      args: ['--disable-setuid-sandbox', '--no-sandbox', '--lang=ko_KR,ko'],
+      args: ['--disable-setuid-sandbox', '--no-sandbox'],
       env: {
         DISPLAY: ':99',
       },
     });
     const page = await browser.newPage();
+    await page.setExtraHTTPHeaders({
+      'Accept-Language': 'ko',
+    });
+
     await page.goto(url, {
       waitUntil: 'networkidle2',
     });
@@ -52,7 +56,6 @@ export class CardService {
       card_attribute,
       card_effect,
     };
-
     browser.close();
     return trimAllEscape(data);
   }
