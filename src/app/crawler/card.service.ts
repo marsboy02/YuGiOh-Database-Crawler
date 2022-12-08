@@ -12,7 +12,7 @@ export class CardService {
       headless: false,
       args: ['--disable-setuid-sandbox', '--no-sandbox'],
       env: {
-        DISPLAY: ':999',
+        DISPLAY: ':99',
       },
     });
     const page = await browser.newPage();
