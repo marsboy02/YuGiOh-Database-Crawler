@@ -10,7 +10,7 @@ export class CardService {
 
     const browser = await puppeteer.launch({
       headless: false,
-      args: ['--disable-setuid-sandbox', '--no-sandbox'],
+      args: ['--disable-setuid-sandbox', '--no-sandbox', '--lang=ko_KR,ko'],
       env: {
         DISPLAY: ':99',
       },
@@ -21,7 +21,6 @@ export class CardService {
     });
     const content = await page.content();
     const $ = cheerio.load(content);
-    console.log(content);
     const card_name = $(
       '#card_list > div:nth-child(1) > dl > dd.box_card_name.flex_1.top_set > span.card_name',
     ).text();
