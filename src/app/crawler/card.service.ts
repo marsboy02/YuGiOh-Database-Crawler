@@ -16,6 +16,7 @@ export class CardService {
       },
     });
     const page = await browser.newPage();
+    await page.waitForTimeout(3000);
     await page.goto(url, {
       waitUntil: 'networkidle2',
     });
