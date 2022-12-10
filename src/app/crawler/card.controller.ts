@@ -14,6 +14,10 @@ export class CardController {
     description: 'Internal Server Error',
   })
   @ApiResponse({
+    status: 404,
+    description: 'Not Found',
+  })
+  @ApiResponse({
     status: 200,
     description: 'Ok',
     type: CardDataResponse,
