@@ -12,5 +12,5 @@ export class CardDataRequest {
   @Expose()
   @IsNotEmpty()
   @IsString()
-  name: string;
+  name!: string;
 }

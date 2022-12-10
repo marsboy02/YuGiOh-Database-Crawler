@@ -1,4 +1,4 @@
-export function trimAllEscape(card_object: object): object {
+export function trimAllEscape(card_object: object) {
   const data = {};
   for (const [key, value] of Object.entries(card_object)) {
     data[key] = trimEscape(value);
