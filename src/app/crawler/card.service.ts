@@ -2,10 +2,11 @@ import { Injectable } from '@nestjs/common';
 import * as puppeteer from 'puppeteer';
 import * as cheerio from 'cheerio';
 import { trimAllEscape } from '../../infrastructure/crawling/card.infra';
+import { CardDataRequest } from '../../infrastructure/swagger/dtos/card.data.request';
 
 @Injectable()
 export class CardService {
-  async getDataViaPuppeteer(name: string) {
+  async getDataViaPuppeteer(name: CardDataRequest) {
     const url = `https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&sess=1&rp=10&mode=&sort=1&keyword=${name}&stype=1&ctype=&othercon=2&starfr=&starto=&pscalefr=&pscaleto=&linkmarkerfr=&linkmarkerto=&link_m=2&atkfr=&atkto=&deffr=&defto=`;
 
     const browser = await puppeteer.launch({
