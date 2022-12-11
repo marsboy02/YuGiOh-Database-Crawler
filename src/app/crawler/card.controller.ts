@@ -1,7 +1,7 @@
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Controller, Get, Param } from '@nestjs/common';
 import { CardService } from './card.service';
-import { CardDataResponse } from '../../infrastructure/swagger/dtos/card.data.response';
+import { CardDataResponse } from '../../infrastructure/swagger/dtos/response/card.data.response';
 
 @Controller('card')
 @ApiTags('CardInformation')
