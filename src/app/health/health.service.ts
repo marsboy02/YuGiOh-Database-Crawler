@@ -5,7 +5,7 @@ export class HealthService {
   getHealthData() {
     return {
       message: 'pong!',
-      currentTime: new Date(),
+      currentTime: new Date().toISOString(),
     };
   }
 }

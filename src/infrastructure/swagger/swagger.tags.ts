@@ -1,5 +1,8 @@
 export const tags: SwaggerTag[] = [
-  { name: 'ServiceHealth', description: '서비스 상태' },
+  {
+    name: 'YuGiOh-Database-Crawler',
+    description: '유희왕 데이터베이스를 크롤링하는 API입니다.',
+  },
 ];
 
 type SwaggerTag = { name: string; description: string };
