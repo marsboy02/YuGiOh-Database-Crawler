@@ -9,18 +9,18 @@ import { trimAllEscape } from '../../infrastructure/crawling/card.infra';
 
 @Injectable()
 export class CardService {
-  async getCardDate(name: string): Promise<object> {
+  async getCardData(name: string) {
     try {
-      return this.getDataViaPuppeteer(name);
+      return await this.getDataViaPuppeteer(name);
     } catch (error) {
-      console.log(error);
-      if (error instanceof NotFoundException)
+      if (error instanceof NotFoundException) {
         throw new NotFoundException(error);
+      }
       throw new InternalServerErrorException(error);
     }
   }
 
-  async getDataViaPuppeteer(name: string): Promise<object> {
+  private async getDataViaPuppeteer(name: string) {
     const url = `https://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&sess=1&rp=10&mode=&sort=1&keyword=${name}&stype=1&ctype=&othercon=2&starfr=&starto=&pscalefr=&pscaleto=&linkmarkerfr=&linkmarkerto=&link_m=2&atkfr=&atkto=&deffr=&defto=`;
 
     const browser = await puppeteer.launch({

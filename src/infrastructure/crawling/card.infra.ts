@@ -6,7 +6,7 @@ export function trimAllEscape(card_object: object) {
   return data;
 }
 
-export function trimEscape(string: string): string {
+function trimEscape(string: string): string {
   return string.replace(/\t/gi, '').replace(/\n/gi, '');
 }
 
