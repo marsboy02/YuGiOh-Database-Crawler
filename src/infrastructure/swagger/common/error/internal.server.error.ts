@@ -20,6 +20,7 @@ export class InternalServerError {
   @ApiProperty({
     type: 'string',
     title: '응답 데이터',
+    example: 'InternalServerError',
     description: 'InternalServerError',
   })
   error: string;
