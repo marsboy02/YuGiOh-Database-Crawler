@@ -5,7 +5,7 @@ import { HealthResponse } from '../../infrastructure/swagger/dtos/response/healt
 import { InternalServerError } from '../../infrastructure/swagger/common/error/internal.server.error';
 
 @Controller('health')
-@ApiTags('ServiceHealth')
+@ApiTags('서비스 헬스 체크')
 export class HealthController {
   constructor(private readonly healthService: HealthService) {}
   @Get()

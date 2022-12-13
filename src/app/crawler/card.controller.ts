@@ -6,11 +6,11 @@ import { NotFound } from '../../infrastructure/swagger/common/error/not.found';
 import { InternalServerError } from '../../infrastructure/swagger/common/error/internal.server.error';
 
 @Controller('card')
-@ApiTags('CardInformation')
+@ApiTags('유희왕 카드')
 export class CardController {
   constructor(private readonly cardService: CardService) {}
 
-  @Get('/search/:name')
+  @Get('/:name')
   @ApiResponse({
     status: 500,
     description: 'Internal Server Error',
